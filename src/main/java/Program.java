@@ -14,5 +14,9 @@ public class Program {
         customerList.add(new Customer(5, "Evandro", "Sutil"));
         customerList.add(new Customer(6, "Thainan", "Santos"));
         customerList.add(new Customer(7, "Paulo", "Lima"));
+
+        for (int i=0; i < customerList.size(); i++) {
+            System.out.println(customerList.get(i));
+        }; 
     }
 }
