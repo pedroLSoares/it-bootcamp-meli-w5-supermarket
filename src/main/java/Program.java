@@ -2,9 +2,12 @@ import Model.Customer;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Program {
     public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
 
         List<Customer> customerList = new ArrayList<>();
         customerList.add(new Customer(1, "Klinton", "Lee"));
@@ -27,5 +30,16 @@ public class Program {
                 customerList) {
             System.out.println(customer);
         }
+
+        try {
+            System.out.println("Digite o id do usuário: ");
+            int userId = scanner.nextInt() - 1;
+
+            Customer searchCustomer = customerList.get(userId);
+            System.out.println(searchCustomer);
+        } catch (IndexOutOfBoundsException error) {
+            System.out.println("Usuário não encontrado.");
+        }
+
     }
 }
