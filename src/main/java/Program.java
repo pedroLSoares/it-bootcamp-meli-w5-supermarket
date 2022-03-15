@@ -15,8 +15,17 @@ public class Program {
         customerList.add(new Customer(6, "Thainan", "Santos"));
         customerList.add(new Customer(7, "Paulo", "Lima"));
 
+        customerList.add(new Customer(8, "Cara que", "Não devia estar aqui"));
+
         for (int i=0; i < customerList.size(); i++) {
             System.out.println(customerList.get(i));
-        }; 
+        };
+        System.out.println();
+        customerList.remove(7);
+
+        for (Customer customer :
+                customerList) {
+            System.out.println(customer);
+        }
     }
 }
