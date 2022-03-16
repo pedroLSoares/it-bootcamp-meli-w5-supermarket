@@ -1,6 +1,7 @@
 import Model.Customer;
 import Model.Invoice;
 import Model.Item;
+import Model.Market;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -50,7 +51,21 @@ public class Program {
 
 
         Invoice invoice = new Invoice(customerList.get(1), items);
+
+        List<Item> items2 = new ArrayList<Item>();
+        items2.add(new Item("MLB12312", "garrafa", new BigDecimal (15.00)));
+        items2.add(new Item("MLB12333", "café", new BigDecimal(15.00)));
+        items2.add(new Item("MLB41241", "mesa", new BigDecimal(4000.23)));
+
+        Invoice invoice2 = new Invoice(customerList.get(1), items2);
+
+
         System.out.println(invoice.getTotalPrice());
+        Market market = new Market();
+
+        market.addInvoice(invoice);
+        market.addInvoice(invoice2);
+
         scanner.close();
     }
 
