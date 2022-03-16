@@ -29,14 +29,14 @@ public class CustomerRepo implements Repository<Customer> {
    }
 
     @Override
-    public void update(int id, Customer obj) {
-        Optional <Customer> response = find(id);
-        if(response.isPresent()){
-            Customer oldCustomer = response.get();
-            obj.setID(id);
-            int posObj = findIndex(oldCustomer);
-            customers.set(posObj, obj);
+    public void update(int id, Customer newCustomer) {
+        Optional <Customer> findObj = find(id);
+
+        if(!findObj.isEmpty()){
+            findObj.get().setName(newCustomer.getName());
+            findObj.get().setLastName(newCustomer.getLastName());
         }
+
     }
 
     @Override

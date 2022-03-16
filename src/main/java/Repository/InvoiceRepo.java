@@ -1,5 +1,6 @@
 package Repository;
 
+import Model.Customer;
 import Model.Invoice;
 
 import java.util.ArrayList;
@@ -10,26 +11,36 @@ public class InvoiceRepo implements Repository<Invoice> {
 
     @Override
     public void create(Invoice obj) {
-
+        obj.setIdInvoice(invoices.size() + 1);
+        invoices.add(obj);
     }
 
     @Override
     public ArrayList<Invoice> read() {
-        return null;
+        return invoices;
     }
 
     @Override
     public Optional<Invoice> find(int id) {
-        return null;
+        return invoices.stream().filter(c -> c.getIdInvoice() == id).findFirst();
     }
 
     @Override
-    public void update(int id, Invoice obj) {
+    public void update(int id, Invoice newInvoice) {
+        Optional <Invoice> findObj = find(id);
 
+        if(!findObj.isEmpty()){
+            findObj.get().setCustomer(newInvoice.getCustomer());
+            findObj.get().setItems(newInvoice.getItems());
+            findObj.get().setTotalPrice( newInvoice.getTotalPrice());
+        }
     }
 
     @Override
     public void delete(int id) {
-
+        Optional <Invoice> response = find(id);
+        if(response.isPresent()){
+            invoices.remove(id - 1);
+        }
     }
 }

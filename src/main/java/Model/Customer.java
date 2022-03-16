@@ -18,6 +18,6 @@ public class Customer {
 
     @Override
     public String toString() {
-        return "O ID do usuário é " + ID + ", e o nome é " + name + " " + lastName;
+        return "\n O ID do usuário é " + ID + ", e o nome é " + name + " " + lastName;
     }
 }

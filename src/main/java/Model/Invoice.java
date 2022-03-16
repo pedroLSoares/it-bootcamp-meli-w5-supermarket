@@ -9,7 +9,7 @@ import java.util.List;
 
 @Data
 public class Invoice {
-
+    private int idInvoice;
     private Customer customer;
     private List<Item> items;
     private BigDecimal totalPrice;
@@ -18,6 +18,7 @@ public class Invoice {
         this.customer = customer;
         this.items = items;
         this.totalPrice = setTotalPrice();
+
     }
 
     private BigDecimal setTotalPrice() {
@@ -30,7 +31,7 @@ public class Invoice {
         return total;
     }
 
-    public String getTotalPrice() {
+    public String getTotalPriceFormated() {
         return NumberFormat.getCurrencyInstance().format(totalPrice);
     }
 }
