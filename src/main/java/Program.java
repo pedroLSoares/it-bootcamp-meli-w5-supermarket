@@ -80,6 +80,14 @@ public class Program {
         System.out.println(customers);
         Optional<Customer> customerFound = customerRepository.find(1);
         System.out.println(customerFound.get());
+        // escrevendo update
+        Customer customer2 = new Customer("Paulos", "Laranja");
+        customerRepository.update(1, customer2);
+        Optional<Customer> customer2Found = customerRepository.find(1);
+        System.out.println(customer2Found.get());
+        customerRepository.delete(1);
+        List<Customer> customer3 = customerRepository.read();
+        System.out.println(customer3);
     }
 
 }
