@@ -24,12 +24,12 @@ public class ItemRepo implements Repository<Item> {
     }
 
     @Override
-    public void update(Item obj) {
+    public void update(int id, Item obj) {
 
     }
 
     @Override
-    public void delete(Item obj) {
+    public void delete(int id) {
 
     }
 }

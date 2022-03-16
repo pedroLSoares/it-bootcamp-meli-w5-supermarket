@@ -24,12 +24,12 @@ public class InvoiceRepo implements Repository<Invoice> {
     }
 
     @Override
-    public void update(Invoice obj) {
+    public void update(int id, Invoice obj) {
 
     }
 
     @Override
-    public void delete(Invoice obj) {
+    public void delete(int id) {
 
     }
 }
