@@ -1,5 +1,8 @@
 import Model.Customer;
+import Model.Invoice;
+import Model.Item;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -40,6 +43,15 @@ public class Program {
         } catch (IndexOutOfBoundsException error) {
             System.out.println("Usuário não encontrado.");
         }
+        List<Item> items = new ArrayList<Item>();
+        items.add(new Item("MLB12312", "garrafa", new BigDecimal (15.00)));
+        items.add(new Item("MLB12333", "café", new BigDecimal(15.00)));
+        items.add(new Item("MLB41241", "mesa", new BigDecimal(4000.23)));
 
+
+        Invoice invoice = new Invoice(customerList.get(1), items);
+        System.out.println(invoice.getTotalPrice());
+        scanner.close();
     }
+
 }
