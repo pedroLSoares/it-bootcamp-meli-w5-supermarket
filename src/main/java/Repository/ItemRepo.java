@@ -3,6 +3,7 @@ package Repository;
 import Model.Item;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 public class ItemRepo implements Repository<Item> {
     private static ArrayList<Item> items = new ArrayList<Item>();
@@ -18,7 +19,7 @@ public class ItemRepo implements Repository<Item> {
     }
 
     @Override
-    public Item find(int id) {
+    public Optional<Item> find(int id) {
         return null;
     }
 
